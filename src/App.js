@@ -46,13 +46,15 @@ export default function App() {
       <div className="buttonBlock">
         {Object.keys(travelPlace).map((region) => {
           return (
-            <button onClick={() => getTravelPlace(region)}>{region}</button>
+            <button key={region} onClick={() => getTravelPlace(region)}>
+              {region}
+            </button>
           );
         })}
       </div>
       <ul className="placeList">
         {travelPlace[selectedRegion].map((location) => (
-          <li>
+          <li key={location.name}>
             <div className="placeName">
               <h3>{location.name}</h3>
             </div>
