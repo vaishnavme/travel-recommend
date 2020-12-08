@@ -41,13 +41,12 @@ export default function App() {
           </div>
         );
       })}
-      {/*  
+
       <footer>
         <small>
           Made with ❤️ by <a href="https://vaishnavs.netlify.app">Vaishnav</a>
         </small>
       </footer>
-   */}
     </div>
   );
 }
