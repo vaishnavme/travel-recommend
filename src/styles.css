@@ -10,48 +10,53 @@
 }
 body {
   color: #eeeeee;
-  background-color: #131313;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(101, 115, 255),
+    rgb(122, 113, 238),
+    rgb(143, 112, 220),
+    rgb(164, 110, 203),
+    rgb(185, 109, 185),
+    rgb(206, 107, 168),
+    rgb(178, 125, 175),
+    rgb(149, 143, 181),
+    rgb(121, 162, 188),
+    rgb(92, 180, 194),
+    rgb(64, 198, 201),
+    rgb(35, 216, 207)
+  );
 }
 .buttonBlock {
   max-width: 650px;
   margin: 1rem auto;
+  text-align: center;
 }
 button {
   padding: 8px 20px;
   margin: 5px;
-  color: #eeeeee;
-  cursor: pointer;
-  background-color: #2e2e2e;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background-color: transparent;
+  border: 3px solid #a0e2fc;
   border-radius: 5px;
-  border: 2px solid #2e2e2e;
+  cursor: pointer;
 }
 button:focus {
-  background-color: #1f1f1f;
-  border: 2px solid #1f1f1f;
   outline: none;
+  color: #2b2b2b;
+  background-color: #a0e2fc;
 }
-.placeList {
-  list-style-type: none;
-  padding-left: 0;
-}
-.placeList li {
-  background-color: #1f1f1f;
+.place {
   padding: 1rem;
-  border-radius: 5px;
   margin: 1rem auto;
+  border-radius: 8px;
+  background-color: #ffffff41;
 }
-.placeList li div {
-  margin: 0.5rem;
-}
-footer {
-  background-color: #1f1f1f;
-  text-align: center;
-  padding: 10px;
-  border-radius: 5px;
-  line-height: 0.5rem;
-}
-footer a {
-  text-decoration: none;
-  color: #eeeeee;
-  letter-spacing: 0.8px;
+
+.image {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  border-radius: 8px;
 }

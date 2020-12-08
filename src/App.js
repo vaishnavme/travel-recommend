@@ -1,41 +1,15 @@
 import React, { useState } from "react";
+import { travelData } from "./Dataset";
+
 import "./styles.css";
 
-const travelPlace = {
-  North: [
-    { name: "Ladakh", region: "Jammu and Kashmir" },
-    { name: "Rohtang La", region: "Himachal Pradesh" },
-    { name: "Betaab Valley", region: "Jammu and Kashmir" },
-    { name: "Sri Harmandir Sahib", region: "Amritsar, Punjab" }
-  ],
-  East: [
-    { name: "Shillong - Scotland of the East", region: "Meghalaya" },
-    { name: "Gangtok - The Gateway to Sikkim", region: "Sikkim" },
-    { name: "Majuli - World's Largest Fresh Water Island", region: "Assam" },
-    { name: "Konark - The city of the Sun Temple", region: "Orissa" }
-  ],
-  West: [
-    { name: "Goa - Beaches, Sunsets and Crazy Nights", region: "Goa" },
-    { name: "Udaipur - The city of Lakes", region: "Rajasthan" },
-    { name: "Mahabaleshwar - The land of Strawberries", region: "Maharashtra" },
-    { name: "Jodhpur - The Blue City", region: "Rajasthan" }
-  ],
-  South: [
-    {
-      name: "Kodaikanal - The Princess of Hill Stations",
-      region: "Tamil Nadu"
-    },
-    { name: "Gokarna - Land of palm trees, blue seas", region: "Karnataka" },
-    { name: "Munnar - Roam Amidst the Tea Gardens", region: "Kerala" },
-    { name: "Hampi - The Majestic Ruins!", region: "Karnataka" }
-  ]
-};
+let travelPlace = Object.keys(travelData);
 
 export default function App() {
-  const [selectedRegion, setRegion] = useState("North");
+  const [selectedRegion, setRegion] = useState("All Place");
 
-  function getTravelPlace(regionPlace) {
-    setRegion(regionPlace);
+  function getTravelPlace(region) {
+    setRegion(region);
   }
 
   return (
@@ -44,7 +18,7 @@ export default function App() {
       <h2>Journey to see Magic happen! </h2>
       <hr />
       <div className="buttonBlock">
-        {Object.keys(travelPlace).map((region) => {
+        {travelPlace.map((region) => {
           return (
             <button key={region} onClick={() => getTravelPlace(region)}>
               {region}
@@ -52,21 +26,28 @@ export default function App() {
           );
         })}
       </div>
-      <ul className="placeList">
-        {travelPlace[selectedRegion].map((location) => (
-          <li key={location.name}>
-            <div className="placeName">
-              <h3>{location.name}</h3>
+      {travelData[selectedRegion].map((place) => {
+        return (
+          <div className="place">
+            <div className="card-image">
+              <img src={place.image} className="image" alt="place"></img>
             </div>
-            <div className="placeRegion">{location.region}</div>
-          </li>
-        ))}
-      </ul>
+            <div className="card-info">
+              <h1 className="place-name">{place.name}</h1>
+              <p className="place-description">{place.description}</p>
+              <h3 className="place-region">Region : {place.region}</h3>
+              <h4 className="place-time">Best Time : {place.bestTime}</h4>
+            </div>
+          </div>
+        );
+      })}
+      {/*  
       <footer>
         <small>
           Made with ❤️ by <a href="https://vaishnavs.netlify.app">Vaishnav</a>
         </small>
       </footer>
+   */}
     </div>
   );
 }
